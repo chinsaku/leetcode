@@ -38,7 +38,7 @@ class LinkedList(object):
         cur = self.head
         yield cur.data  # 当前节点data数据的生成器
         while cur.next:
-            #yield cur.data  # 当前节点data数据的生成器
+            # yield cur.data  # 当前节点data数据的生成器
             cur = cur.next  # 当前节点指向下一个节点并遍历
             yield cur.data  # 当前节点data数据的生成器
 

@@ -1,2 +1,5 @@
-for i in range(7):
-    print(i)
+list1 = [1,2,3,4,5]
+
+for n in list1[1:]:
+    print(n)
+

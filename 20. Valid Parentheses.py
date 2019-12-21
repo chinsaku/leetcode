@@ -1,3 +1,4 @@
+# 下面这个方法是错的
 class Solution:
     def isValid(self, s: str) -> bool:
         dictstr = {'(': 1, '{': 2, '[': 3, ')': -1, '}': -2, ']': -3}

@@ -64,7 +64,6 @@ class Tree(object):
         if self.root is None:
             return False
 
-        #print(3)
         parent = self.get_parent(item)
         if parent:
             # 确定待删除节点
@@ -93,24 +92,18 @@ class Tree(object):
                 return True
             else:  # 左右子树都不为空
                 tmp_pre = del_node
-                #print("tmp_pre=")
                 # 待删除节点的右子树
                 tmp_next = del_node.right
-                #print(2)
 
                 # 寻找待删除节点右子树中的最左叶子节点并完成替代
-                if tmp_next.left.item is None:
-
+                if tmp_next.left is None:
                     # 替代
-                    #print(1)
                     tmp_pre.right = tmp_next.right
                     tmp_next.left = del_node.left
                     tmp_next.right = del_node.right
                 else:
                     # 让 tmp_next 指向右子树的最左叶子节点
-                    
-                    while tmp_next.left.item:
-                        #print(4)
+                    while tmp_next.left:
                         tmp_pre = tmp_next
                         tmp_next = tmp_next.left
                     # 替代
@@ -129,20 +122,23 @@ class Tree(object):
             return False
 
 
-a = Tree()
-#a.add(41)
-#becasue the root has existed
-a.add(20)
-a.add(65)
-a.add(11)
-a.add(29)
-a.add(50)
-a.add(91)
-a.add(50)
-a.add(None)
-a.add(None)
-a.add(None)
-a.add(32)
-a.delete(20)
-print(a.get_parent(11).right.item)
-#print(a.root.left.item)
+a = Node(32)
+b = Node(11)
+c = Node(29)
+d = Node(20)
+e = Node(41)
+c.right = a
+d.left = b
+d.right = c
+e.left = d
+
+tmp_pre = d
+tmp_next = d.right
+print(id(tmp_pre.item))
+print(id(tmp_pre.item))
+tmp_pre.right = tmp_next.right
+print(id(tmp_pre.item))
+print(id(d.item))
+tmp_next.left = d.left
+tmp_next.right =d.right
+print(tmp_next.item,tmp_next.left.item,tmp_next.right.item)

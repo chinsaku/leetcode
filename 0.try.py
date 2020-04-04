@@ -1,2 +1,3 @@
-a = "13"
-print (a[0])
+m =3
+for i in range(-1,-1,-1):
+    print(i)
